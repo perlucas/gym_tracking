@@ -1,0 +1,15 @@
+{
+    "name": "lucas/gym_tracking",
+    "description": "Gym tracking application",
+    "type": "project",
+    "require": {
+        "propel/propel": "~2.0@dev",
+        "mikecao/flight": "^1.3"
+    },
+    "authors": [
+        {
+            "name": "Lucas",
+            "email": "lukaspereyra8@gmail.com"
+        }
+    ]
+}
