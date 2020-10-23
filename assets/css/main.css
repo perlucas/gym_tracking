@@ -13,9 +13,9 @@ html, body {
     padding: 5rem;
 }
 
-.main-title {
-    font-size: 3rem;
-    font-weight: 300;
+.logo {
+    width: 400px;
+    height: 150px;
 }
 
 .register-form {

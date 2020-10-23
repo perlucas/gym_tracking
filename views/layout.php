@@ -17,7 +17,7 @@
     <div class="container bg-black-1">
         <div class="pure-g">
             <div class="pure-u-1-1 content-center">
-                <h1 class="main-title text-upper text-green-1 ff-1">Gym tracking App</h1>
+                <img src="assets/img/logo.jpeg" class="logo" alt="FUNTRAINSPORTS Entrenamiento Funcional">
             </div>
         </div>
         
