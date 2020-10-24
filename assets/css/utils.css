@@ -56,6 +56,10 @@
   margin-right: 2rem;  
 }
 
+.m-t-2 {
+  margin-top: 2rem;  
+}
+
 .custom-autocomplete {
     background: var(--secondary-color);
 }

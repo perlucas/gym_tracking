@@ -15,7 +15,7 @@ class AdminController extends BaseController
         $this->app->view()->set('navLinks', 
             array(
                 array('label' => 'Inicio', 'link' => '/home' ),
-                array('label' => 'Exportar registros', 'link' => '#' ),
+                array('label' => 'Exportar registros', 'link' => '/attendance/export' ),
                 array('label' => 'Exportar personas', 'link' => '#' )
             )
         );

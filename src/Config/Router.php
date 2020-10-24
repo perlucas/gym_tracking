@@ -48,6 +48,11 @@ class Router
             'GET /admin',
             array( static::getController('admin'), 'show' )
         );
+
+        $app->route(
+            'GET /attendance/export',
+            array( static::getController('attendance'), 'showExportOptions' )
+        );
     }
 
     /**
