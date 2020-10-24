@@ -1,5 +1,6 @@
 :root {
     --primary-color: rgb(255 228 53);
+    --primary-color-darker: rgb(255 228 53);
     --secondary-color: rgb(1 2 1);
     --placeholder-color: #000000c2;
 }
@@ -52,4 +53,12 @@
 
 .m-r-2 {
   margin-right: 2rem;  
+}
+
+.custom-autocomplete {
+    background: var(--secondary-color);
+}
+
+.custom-autocomplete .ui-menu-item-wrapper:hover {
+    color: var(--secondary-color);
 }

@@ -1,9 +1,15 @@
 <?php
 
-require 'vendor/autoload.php';
+require 'vendor' . DIRECTORY_SEPARATOR . 'autoload.php';
 
-Flight::route('/', function() {
-    Flight::render('layout');
-});
+use Core\Config\Configure;
+use Core\Config\Router;
+use flight\Engine;
 
-Flight::start();
+$app = new Engine();
+
+Configure::configure($app);
+
+Router::configureRoutes($app);
+
+$app->start();
