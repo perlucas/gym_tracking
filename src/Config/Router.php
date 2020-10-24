@@ -3,8 +3,6 @@
 namespace Core\Config;
 use flight\Engine;
 
-// use Core\Controllers\HomeController;
-
 class Router
 {
     /**
@@ -31,12 +29,25 @@ class Router
 
         static::$app = $app;
 
-        $app->route('/', function () use ($app) {
-            $app->redirect('/home');
-        });
+        $app->route(
+            'GET /', 
+            function () use ($app) { $app->redirect('/home');}
+        );
 
-        $app->route('/home', array( static::getController('home') , 'home'));
+        $app->route(
+            'GET /home', 
+            array( static::getController('home') , 'show')
+        );
 
+        $app->route(
+            'POST /attendance(/@trainee_id:[0-9]+)',
+            array( static::getController('attendance'), 'createForTrainee' )
+        );
+
+        $app->route(
+            'GET /admin',
+            array( static::getController('admin'), 'show' )
+        );
     }
 
     /**

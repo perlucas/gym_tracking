@@ -6,6 +6,10 @@ use Core\Config\Configure;
 use Core\Config\Router;
 use flight\Engine;
 
+if (! session_id()) {
+    session_start();
+}
+
 $app = new Engine();
 
 Configure::configure($app);

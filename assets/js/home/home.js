@@ -1,4 +1,4 @@
-class TraineesManager
+class SelectTraineeWidget
 {
     static setUp() {
         $('#traineeRef').autocomplete({
@@ -21,4 +21,4 @@ class TraineesManager
     }
 }
 
-$(document).ready(TraineesManager.setUp);
+$(document).ready(SelectTraineeWidget.setUp);

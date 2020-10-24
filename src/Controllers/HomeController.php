@@ -1,7 +1,6 @@
 <?php
 
 namespace Core\Controllers;
-use flight\Engine;
 
 class HomeController extends BaseController
 {
@@ -10,14 +9,21 @@ class HomeController extends BaseController
      *
      * @return void
      */
-    public function home() {
+    public function show() {
         $this->app->render('home/bodyContent', array(), 'bodyContent');
-        $this->app->render('layout',
-            [
-                'bodyScripts' => [
-                    'home/home.js'
-                ]
-            ]
+
+        $this->app->view()->set('bodyScripts', 
+            array(
+                'home/home.js'
+            )
         );
+        
+        $this->app->view()->set('navLinks', 
+            array(
+                array('label' => 'Administración', 'link' => '/admin' )
+            )
+        );
+
+        $this->app->render('layout');
     }
 }
