@@ -1,9 +1,16 @@
+:root {
+    --primary-color: rgb(255 228 53);
+    --primary-color-darker: rgb(255 228 53);
+    --secondary-color: rgb(1 2 1);
+    --placeholder-color: #000000c2;
+}
+
 .text-green-1 {
-    color: rgb(39 234 39);
+    color: var(--secondary-color);
 }
 
 .bg-black-1 {
-    background-color: rgb(0 0 0 / 82%);
+    background-color: var(--primary-color);
 }
 
 .text-upper {
@@ -16,34 +23,101 @@
 }
 
 .ff-1 {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Raleway', sans-serif !important;
 }
 
 .styled-input {
     background-color: transparent;
     border: none !important;
-    border-bottom: 1px solid rgb(39 234 39) !important;
+    border-bottom: 1px solid var(--secondary-color) !important;
     box-shadow: none !important;
     border-radius: 0% !important;
-    color: white;
+    color: var(--secondary-color);
 }
 
 .styled-input::placeholder {
-    color: rgb(160, 156, 156);
+    color: var(--placeholder-color);
 }
 
 .styled-button {
-    border: 1px solid rgb(39 234 39);
+    border: 1px solid var(--secondary-color);
     background-color: transparent;
-    padding: 1rem;
+    padding: .5rem;
     outline: none;
 }
 
 .styled-button:hover {
-    background-color: rgb(39 234 39);
-    color: rgb(0 0 0 / 82%);
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    cursor: pointer;
 }
 
 .m-r-2 {
   margin-right: 2rem;  
+}
+
+.custom-autocomplete {
+    background: var(--secondary-color);
+}
+
+.custom-autocomplete .ui-menu-item-wrapper:hover {
+    color: var(--secondary-color);
+}
+
+.alert {
+    padding: 15px;
+    margin-bottom: 20px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+}
+
+button.close {
+    -webkit-appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+}
+
+.close {
+    float: right;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    filter: alpha(opacity=20);
+    opacity: .2;
+}
+
+.close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    filter: alpha(opacity=50);
+    opacity: .5;
+}
+
+.alert-success {
+    color: #3c763d;
+    background-color: #c1e6b2;
+    border-color: #94ad7f;
+}
+
+.alert-info {
+    color: #31708f;
+    background-color: #d9edf7;
+    border-color: #7aa9b3;
+}
+
+.alert-warning {
+    color: #8a6d3b;
+    background-color: #f8eebc;
+    border-color: #cca85f;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: #f2dede;
+    border-color: #dd7c8c;
 }

@@ -4,41 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Trazabilidad de Asistencia - Gym Tracking App</title>
-    <link 
-        href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,100;0,300;0,400;1,100&display=swap" 
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/base-min.css">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/grids-min.css">
-    <link rel="stylesheet" href="https://unpkg.com/purecss@2.0.3/build/forms-min.css">
+
+    <!-- font -->
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    
+    <!-- css framework -->
+    <link rel="stylesheet" href="assets/css/pure-base-min.css">
+    <link rel="stylesheet" href="assets/css/pure-grids-min.css">
+    <link rel="stylesheet" href="assets/css/pure-forms-min.css">
+
+    <!-- jquery ui -->
+    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui.structure.min.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui.theme.min.css">
+
+    <!-- custom css -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/utils.css">
+
+    <!-- jquery & jquery ui -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery-ui.min.js"></script>
+    
+    <!-- custom global js -->
+    <script src="assets/js/main.js"></script>
 </head>
 <body>
     <div class="container bg-black-1">
+
+        <?php
+        if (isset($navLinks) && count($navLinks)) {
+            ?>
+            <div class="pure-g">    
+            <div class="pure-u-1-1">
+            <ul class='nav-links'>
+            <?php 
+            foreach ($navLinks as $link) {
+                echo "
+                <li class=\"nav-li\">
+                    <a href='{$link['link']}' class=\"styled-button text-upper\">{$link['label']}</a>
+                </li>";
+            }
+            ?>
+            </ul>
+            </div>
+            </div>
+            <?php
+        }
+        ?>
+
         <div class="pure-g">
             <div class="pure-u-1-1 content-center">
-                <h1 class="main-title text-upper text-green-1 ff-1">Gym tracking App</h1>
+                <img src="assets/img/logo.jpeg" class="logo" alt="FUNTRAINSPORTS Entrenamiento Funcional">
             </div>
         </div>
         
-        <div class="pure-g">
-            <div class="pure-u-1-1">
-                <form class="pure-form pure-g register-form">
-                    <div class="pure-u-16-24">
-                        <input type="text" placeholder="Ingrese su DNI o Nombre" class="line-input styled-input m-r-2 ff-1" />
-                    </div>
-                    <div class="pure-u-1-24"></div>
-                    <div class="pure-u-5-24">
-                        <button 
-                            type="submit" 
-                            class="pure-button pure-button-primary line-button styled-button bg-black-1 text-upper text-green-1 ff-1">
-                            Registrar Ingreso
-                        </button>
-                    </div>
-                </form>
-            </div>
-        </div>
+        <?= $bodyContent ?>
 
+
+        <div class="alert-container pure-g">
+            <?php
+            $flash = Core\Utils\FlashMessages::getInstance();
+            if ($flash->hasMessages()) {
+                $flash->display();
+            }
+            ?>
+        </div>
     </div>
+
+    <?php 
+    if (isset($bodyScripts)) {
+        foreach ($bodyScripts as $scriptPath) {
+            echo "<script src=\"assets/js/{$scriptPath}\"></script>";
+        }
+    }
+    ?>
 </body>
 </html>
