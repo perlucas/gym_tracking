@@ -32,26 +32,27 @@
 <body>
     <div class="container bg-black-1">
 
-        <?php
-        if (isset($navLinks) && count($navLinks)) {
-            ?>
-            <div class="pure-g">    
+        <div class="pure-g">
             <div class="pure-u-1-1">
-            <ul class='nav-links'>
-            <?php 
-            foreach ($navLinks as $link) {
-                echo "
-                <li class=\"nav-li\">
-                    <a href='{$link['link']}' class=\"styled-button text-upper\">{$link['label']}</a>
-                </li>";
-            }
-            ?>
-            </ul>
+                <ul class='nav-links'>
+                    <li class="nav-li">
+                        <a href='/home' class="styled-button text-upper">Inicio</a>
+                    </li>
+                    <li class="nav-li">
+                        <a href='#' data-dropdown="links-admin" class="styled-button text-upper">
+                            Administrar
+                        </a>
+                        <div class="nav-dropdown" id='links-admin'>
+                            <ul class="dropdown-links ff-1">
+                                <li><a class='styled-inverse' href="/trainee/new">Nueva Persona</a></li>
+                                <li><a class='styled-inverse' href="/attendance/export">Exportar Registros</a></li>
+                                <li><a class='styled-inverse' href="/trainee/export">Exportar Personas</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
             </div>
-            </div>
-            <?php
-        }
-        ?>
+        </div>
 
         <div class="pure-g">
             <div class="pure-u-1-1 content-center">
@@ -75,7 +76,7 @@
     <?php 
     if (isset($bodyScripts)) {
         foreach ($bodyScripts as $scriptPath) {
-            echo "<script src=\"assets/js/{$scriptPath}\"></script>";
+            echo "<script src=\"/assets/js/{$scriptPath}\"></script>";
         }
     }
     ?>

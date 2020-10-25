@@ -43,4 +43,26 @@ li.nav-li {
 a {
     text-decoration: none;
     color: inherit;
+    padding: .5rem;
+}
+
+.nav-dropdown {
+    display: none;
+}
+
+
+.dropdown-links {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    margin-top: 1rem;
+}
+
+.dropdown-links li {
+    list-style: none;
+    display: flex;
+}
+
+.dropdown-links li a {
+    width: 100%;
 }

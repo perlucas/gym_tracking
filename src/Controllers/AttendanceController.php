@@ -38,14 +38,12 @@ class AttendanceController extends BaseController
      *
      * @return void
      */
-    public function showExportOptions() {
+    public function exportForm() {
         $this->app->render('attendance/export', array(), 'bodyContent');
-        
-        $this->app->view()->set('navLinks', 
+
+        $this->app->view()->set('bodyScripts', 
             array(
-                array('label' => 'Inicio', 'link' => '/home' ),
-                array('label' => 'Administración', 'link' => '/admin' ),
-                array('label' => 'Exportar personas', 'link' => '#' )
+                'attendance/export.js'
             )
         );
 

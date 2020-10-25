@@ -9,8 +9,8 @@ class HomeController extends BaseController
      *
      * @return void
      */
-    public function show() {
-        $this->app->render('home/bodyContent', array(), 'bodyContent');
+    public function index() {
+        $this->app->render('home/index', array(), 'bodyContent');
 
         $this->app->view()->set('bodyScripts', 
             array(
@@ -18,12 +18,6 @@ class HomeController extends BaseController
             )
         );
         
-        $this->app->view()->set('navLinks', 
-            array(
-                array('label' => 'Administración', 'link' => '/admin' )
-            )
-        );
-
         $this->app->render('layout');
     }
 }
