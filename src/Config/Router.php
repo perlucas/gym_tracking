@@ -53,6 +53,11 @@ class Router
             'GET /trainee/new',
             array( static::getController('trainee'), 'createForm' )
         );
+        
+        $app->route(
+            'GET /trainee/export',
+            array( static::getController('trainee'), 'exportForm' )
+        );
     }
 
     /**

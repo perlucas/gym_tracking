@@ -18,6 +18,6 @@ class HomeController extends BaseController
             )
         );
         
-        $this->app->render('layout');
+        $this->app->render( $this->layouts['web'] );
     }
 }

@@ -22,7 +22,7 @@ html, body {
 }
 
 .line-input {
-    width: 100%;
+    width: 100% !important;
 }
 
 .line-button {
@@ -48,6 +48,7 @@ a {
 
 .nav-dropdown {
     display: none;
+    position: absolute;
 }
 
 
@@ -65,4 +66,23 @@ a {
 
 .dropdown-links li a {
     width: 100%;
+}
+
+.styled-select, .styled-select:focus, .styled-select:hover  {
+    background: var(--secondary-color);
+    border-radius: 0;
+    border: none;
+    outline: none;
+}
+
+.styled-select:hover {
+    opacity: 0.8;
+}
+
+.styled-select-options ul, .styled-select-options li {
+    border-radius: 0;
+}
+
+.styled-select-options li .ui-menu-item-wrapper {
+    color: var(--secondary-color);
 }

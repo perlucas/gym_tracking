@@ -1,26 +1,10 @@
 <div class="pure-g">
     <div class="pure-u-1-1">
-        <h1 class='ff-1 text-center'>Exportar registros</h1>
+        <h1 class='ff-1 text-center'>Exportar personas</h1>
     </div>
     <div class="pure-u-1-1">
-        <form class="pure-form pure-form-aligned" action="/attendance/export" method="POST">
+        <form class="pure-form pure-form-aligned" action="/trainee/export" method="POST">
             <div class="pure-g">
-
-                <div class="pure-u-11-24 m-t-2">
-                    <input 
-                        type="datetime" 
-                        id="multi-first-name" 
-                        class="line-input styled-input ff-1" 
-                        placeholder="Fecha inicial"/>
-                </div>
-                <div class="pure-u-2-24 m-t-2"></div>
-                <div class="pure-u-11-24 m-t-2">
-                    <input 
-                        type="datetime" 
-                        id="multi-first-name" 
-                        class="line-input styled-input ff-1" 
-                        placeholder="Fecha final"/>
-                </div>
                 
                 <div class="pure-u-11-24 m-t-2">
                     <label for="export_format" class='top-label ff-1'>Formato</label>
@@ -28,6 +12,7 @@
                         <option value="excel">Excel</option>
                     </select>
                 </div>
+                
                 <div class="pure-u-2-24 m-t-2"></div>
                 <div class="pure-u-11-24 m-t-2">
                     <button 

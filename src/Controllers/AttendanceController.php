@@ -43,10 +43,10 @@ class AttendanceController extends BaseController
 
         $this->app->view()->set('bodyScripts', 
             array(
-                'attendance/export.js'
+                'export/export.js'
             )
         );
 
-        $this->app->render('layout');
+        $this->app->render( $this->layouts['web'] );
     }
 }

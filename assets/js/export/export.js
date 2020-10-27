@@ -3,9 +3,8 @@ class ExportFormatWidget
     static setUp() {
         $( "#export_format" ).selectmenu({
             classes: {
-                "ui-selectmenu-button-closed": "miestilo",
-                "ui-selectmenu-button-open": "miestilo",
-                "ui-selectmenu-button": "miestilo",
+                "ui-selectmenu-button": "styled-select line-input ff-1",
+                "ui-selectmenu-menu": "styled-select-options ff-1"
             }
         });
     }
