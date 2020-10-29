@@ -13,6 +13,15 @@ abstract class BaseController
     protected $app;
 
     /**
+     * layout => php view file mapping
+     *
+     * @var array
+     */
+    protected $layouts = [
+        'web' => 'layouts/web'
+    ];
+
+    /**
      * instantiates this controller
      *
      * @param Engine $appInstance

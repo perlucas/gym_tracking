@@ -1,6 +1,6 @@
 <div class="pure-g">
     <div class="pure-u-1-1">
-        <form class="pure-form pure-g register-form" action="/attendance" method="POST">
+        <form class="pure-form pure-g" action="/attendance" method="POST">
             <div class="pure-u-16-24">
                 <input 
                     id="traineeRef"

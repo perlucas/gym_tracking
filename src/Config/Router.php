@@ -36,7 +36,7 @@ class Router
 
         $app->route(
             'GET /home', 
-            array( static::getController('home') , 'show')
+            array( static::getController('home') , 'index')
         );
 
         $app->route(
@@ -45,8 +45,18 @@ class Router
         );
 
         $app->route(
-            'GET /admin',
-            array( static::getController('admin'), 'show' )
+            'GET /attendance/export',
+            array( static::getController('attendance'), 'exportForm' )
+        );
+
+        $app->route(
+            'GET /trainee/new',
+            array( static::getController('trainee'), 'createForm' )
+        );
+        
+        $app->route(
+            'GET /trainee/export',
+            array( static::getController('trainee'), 'exportForm' )
         );
     }
 

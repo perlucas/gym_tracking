@@ -32,4 +32,21 @@ class AttendanceController extends BaseController
 
         $this->app->redirect('/home');
     }
+
+    /**
+     * renders the /attendance/export page
+     *
+     * @return void
+     */
+    public function exportForm() {
+        $this->app->render('attendance/export', array(), 'bodyContent');
+
+        $this->app->view()->set('bodyScripts', 
+            array(
+                'export/export.js'
+            )
+        );
+
+        $this->app->render( $this->layouts['web'] );
+    }
 }
