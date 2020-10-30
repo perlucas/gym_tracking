@@ -58,6 +58,13 @@ class Router
             'GET /trainee/export',
             array( static::getController('trainee'), 'exportForm' )
         );
+
+        /* API endpoints */
+
+        $app->route(
+            'GET /api/v1/trainees',
+            array( static::getController('trainee'), 'fetchTrainees' )
+        );
     }
 
     /**

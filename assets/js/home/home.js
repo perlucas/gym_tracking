@@ -1,14 +1,32 @@
 class SelectTraineeWidget
 {
+    static reduceTrainee(trainee) {
+        console.log(trainee);
+        return {
+            value: trainee.id, 
+            label: `${trainee.fullname} - ${trainee.dni}`
+        };
+    }
+
     static setUp() {
         $('#traineeRef').autocomplete({
-            source: [
-                { label: 'Santiago Rivero - 39088088', value: 1 },
-                { label: 'Nico Doncheff - 39066088', value: 2 },
-                { label: 'Lionel Messi - 39044555', value: 3 },
-                { label: 'Martin Palermo - 34455666', value: 4 },
-                { label: 'Juan Riquelme - 39044888', value: 5 },
-            ],
+            source: function (request, response) {
+                $.get({
+                    url: `/api/v1/trainees?term=${request.term}`,
+                    dataType: 'json',
+                    success: function (res) {
+                        if (res && Array.isArray(res)) {
+                            response(
+                                res.map(SelectTraineeWidget.reduceTrainee)
+                            );
+                        }
+                        else {
+                            console.info(`Error on response: ${res}`);
+                            response([]);
+                        }
+                    }
+                });
+            },
             classes: {
                 "ui-autocomplete": "custom-autocomplete ff-1"
             },

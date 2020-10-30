@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<database name="main" defaultIdMethod="native" namespace="Core\Models">
+    <table name="trainee" phpName="Trainee">
+        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"></column>
+        <column name="fullname" type="varchar" required="true" size="150"></column>
+        <column name="dni" type="varchar" required="true" size="12"></column>
+        <column name="phone" type="varchar" required="true" size="50"></column>
+        <column name="address" type="varchar" required="true" size="150"></column>
+    </table>
+    <table name="attendance" phpName="Attendance">
+        <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"></column>
+        <column name="trainee_id" type="integer" required="true" ></column>
+        <column name="timestamp" type="timestamp" required="true" ></column>
+        <foreign-key foreignTable="trainee" refPhpName="Attendance">
+            <reference local="trainee_id" foreign="id"/>
+        </foreign-key>
+    </table>
+</database>
