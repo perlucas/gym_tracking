@@ -23,7 +23,7 @@ use Propel\Runtime\Parser\AbstractParser;
 use Propel\Runtime\Util\PropelDateTime;
 
 /**
- * Base class that represents a row from the 'attendance' table.
+ * Base class that represents a row from the 'gym_tracking.attendance' table.
  *
  *
  *
@@ -709,7 +709,7 @@ abstract class Attendance implements ActiveRecordInterface
         }
 
         $sql = sprintf(
-            'INSERT INTO attendance (%s) VALUES (%s)',
+            'INSERT INTO gym_tracking.attendance (%s) VALUES (%s)',
             implode(', ', $modifiedColumns),
             implode(', ', array_keys($modifiedColumns))
         );
@@ -849,7 +849,7 @@ abstract class Attendance implements ActiveRecordInterface
                         $key = 'trainee';
                         break;
                     case TableMap::TYPE_FIELDNAME:
-                        $key = 'trainee';
+                        $key = 'gym_tracking.trainee';
                         break;
                     default:
                         $key = 'Trainee';

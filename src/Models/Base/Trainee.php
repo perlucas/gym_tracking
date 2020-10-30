@@ -24,7 +24,7 @@ use Propel\Runtime\Map\TableMap;
 use Propel\Runtime\Parser\AbstractParser;
 
 /**
- * Base class that represents a row from the 'trainee' table.
+ * Base class that represents a row from the 'gym_tracking.trainee' table.
  *
  *
  *
@@ -789,7 +789,7 @@ abstract class Trainee implements ActiveRecordInterface
         }
 
         $sql = sprintf(
-            'INSERT INTO trainee (%s) VALUES (%s)',
+            'INSERT INTO gym_tracking.trainee (%s) VALUES (%s)',
             implode(', ', $modifiedColumns),
             implode(', ', array_keys($modifiedColumns))
         );
@@ -939,7 +939,7 @@ abstract class Trainee implements ActiveRecordInterface
                         $key = 'attendances';
                         break;
                     case TableMap::TYPE_FIELDNAME:
-                        $key = 'attendances';
+                        $key = 'gym_tracking.attendances';
                         break;
                     default:
                         $key = 'Attendances';

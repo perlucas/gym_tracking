@@ -16,7 +16,7 @@ use Propel\Runtime\Map\TableMapTrait;
 
 
 /**
- * This class defines the structure of the 'attendance' table.
+ * This class defines the structure of the 'gym_tracking.attendance' table.
  *
  *
  *
@@ -43,7 +43,7 @@ class AttendanceTableMap extends TableMap
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'attendance';
+    const TABLE_NAME = 'gym_tracking.attendance';
 
     /**
      * The related Propel class for this table
@@ -73,17 +73,17 @@ class AttendanceTableMap extends TableMap
     /**
      * the column name for the id field
      */
-    const COL_ID = 'attendance.id';
+    const COL_ID = 'gym_tracking.attendance.id';
 
     /**
      * the column name for the trainee_id field
      */
-    const COL_TRAINEE_ID = 'attendance.trainee_id';
+    const COL_TRAINEE_ID = 'gym_tracking.attendance.trainee_id';
 
     /**
      * the column name for the timestamp field
      */
-    const COL_TIMESTAMP = 'attendance.timestamp';
+    const COL_TIMESTAMP = 'gym_tracking.attendance.timestamp';
 
     /**
      * The default string format for model objects of the related table
@@ -128,7 +128,7 @@ class AttendanceTableMap extends TableMap
     public function initialize()
     {
         // attributes
-        $this->setName('attendance');
+        $this->setName('gym_tracking.attendance');
         $this->setPhpName('Attendance');
         $this->setIdentifierQuoting(false);
         $this->setClassName('\\Core\\Models\\Attendance');
@@ -136,7 +136,7 @@ class AttendanceTableMap extends TableMap
         $this->setUseIdGenerator(true);
         // columns
         $this->addPrimaryKey('id', 'Id', 'INTEGER', true, null, null);
-        $this->addForeignKey('trainee_id', 'TraineeId', 'INTEGER', 'trainee', 'id', true, null, null);
+        $this->addForeignKey('trainee_id', 'TraineeId', 'INTEGER', 'gym_tracking.trainee', 'id', true, null, null);
         $this->addColumn('timestamp', 'Timestamp', 'TIMESTAMP', true, null, null);
     } // initialize()
 
@@ -370,7 +370,7 @@ class AttendanceTableMap extends TableMap
     }
 
     /**
-     * Deletes all rows from the attendance table.
+     * Deletes all rows from the gym_tracking.attendance table.
      *
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).

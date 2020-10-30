@@ -16,7 +16,7 @@ use Propel\Runtime\Map\TableMapTrait;
 
 
 /**
- * This class defines the structure of the 'trainee' table.
+ * This class defines the structure of the 'gym_tracking.trainee' table.
  *
  *
  *
@@ -43,7 +43,7 @@ class TraineeTableMap extends TableMap
     /**
      * The table name for this class
      */
-    const TABLE_NAME = 'trainee';
+    const TABLE_NAME = 'gym_tracking.trainee';
 
     /**
      * The related Propel class for this table
@@ -73,27 +73,27 @@ class TraineeTableMap extends TableMap
     /**
      * the column name for the id field
      */
-    const COL_ID = 'trainee.id';
+    const COL_ID = 'gym_tracking.trainee.id';
 
     /**
      * the column name for the fullname field
      */
-    const COL_FULLNAME = 'trainee.fullname';
+    const COL_FULLNAME = 'gym_tracking.trainee.fullname';
 
     /**
      * the column name for the dni field
      */
-    const COL_DNI = 'trainee.dni';
+    const COL_DNI = 'gym_tracking.trainee.dni';
 
     /**
      * the column name for the phone field
      */
-    const COL_PHONE = 'trainee.phone';
+    const COL_PHONE = 'gym_tracking.trainee.phone';
 
     /**
      * the column name for the address field
      */
-    const COL_ADDRESS = 'trainee.address';
+    const COL_ADDRESS = 'gym_tracking.trainee.address';
 
     /**
      * The default string format for model objects of the related table
@@ -138,7 +138,7 @@ class TraineeTableMap extends TableMap
     public function initialize()
     {
         // attributes
-        $this->setName('trainee');
+        $this->setName('gym_tracking.trainee');
         $this->setPhpName('Trainee');
         $this->setIdentifierQuoting(false);
         $this->setClassName('\\Core\\Models\\Trainee');
@@ -386,7 +386,7 @@ class TraineeTableMap extends TableMap
     }
 
     /**
-     * Deletes all rows from the trainee table.
+     * Deletes all rows from the gym_tracking.trainee table.
      *
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).

@@ -5,7 +5,7 @@ propel:
 
     paths:
         sqlDir: ./sql
-        phpDir: ../src/
+        phpDir: ../src
         composerDir: ../
 
     database:

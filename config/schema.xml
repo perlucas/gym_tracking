@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<database name="main" defaultIdMethod="native" namespace="Core\Models">
+<database name="main" schema="gym_tracking" defaultIdMethod="native" namespace="Core\Models">
     <table name="trainee" phpName="Trainee">
         <column name="id" type="integer" required="true" primaryKey="true" autoIncrement="true"></column>
         <column name="fullname" type="varchar" required="true" size="150"></column>

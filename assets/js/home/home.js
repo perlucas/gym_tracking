@@ -1,7 +1,6 @@
 class SelectTraineeWidget
 {
     static reduceTrainee(trainee) {
-        console.log(trainee);
         return {
             value: trainee.id, 
             label: `${trainee.fullname} - ${trainee.dni}`

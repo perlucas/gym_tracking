@@ -16,7 +16,7 @@ use Propel\Runtime\Connection\ConnectionInterface;
 use Propel\Runtime\Exception\PropelException;
 
 /**
- * Base class that represents a query for the 'attendance' table.
+ * Base class that represents a query for the 'gym_tracking.attendance' table.
  *
  *
  *
@@ -164,7 +164,7 @@ abstract class AttendanceQuery extends ModelCriteria
      */
     protected function findPkSimple($key, ConnectionInterface $con)
     {
-        $sql = 'SELECT id, trainee_id, timestamp FROM attendance WHERE id = :p0';
+        $sql = 'SELECT id, trainee_id, timestamp FROM gym_tracking.attendance WHERE id = :p0';
         try {
             $stmt = $con->prepare($sql);
             $stmt->bindValue(':p0', $key, PDO::PARAM_INT);
@@ -475,7 +475,7 @@ abstract class AttendanceQuery extends ModelCriteria
     }
 
     /**
-     * Deletes all rows from the attendance table.
+     * Deletes all rows from the gym_tracking.attendance table.
      *
      * @param ConnectionInterface $con the connection to use
      * @return int The number of affected rows (if supported by underlying database driver).

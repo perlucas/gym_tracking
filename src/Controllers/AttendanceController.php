@@ -25,7 +25,7 @@ class AttendanceController extends BaseController
         );
 
         if ($result->isSuccess()) {
-            FlashMessages::getInstance()->success('Se ha registrado el ingreso de %NOMBRE% con éxito');
+            FlashMessages::getInstance()->success("Se ha registrado el ingreso de {$trainee_id} con éxito");
         } else {
             FlashMessages::getInstance()->error($result->getErrorMessage());
         }

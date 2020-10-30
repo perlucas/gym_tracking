@@ -15,5 +15,16 @@ use Core\Models\Base\TraineeQuery as BaseTraineeQuery;
  */
 class TraineeQuery extends BaseTraineeQuery
 {
-
+    /**
+     * custom filter added for filtering on dni and fullname
+     *
+     * @param string $term
+     * @return \ModelCriteria
+     */
+    public function filterByFullNameOrDNI($term) {
+        return $this
+            ->where('Trainee.fullname LIKE ?', "%{$term}%")
+            ->_or()
+            ->where('Trainee.dni LIKE ?', "%{$term}%");
+    }
 }

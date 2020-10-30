@@ -1,6 +1,7 @@
 <?php
 
 namespace Core\Controllers;
+use Core\Services\TraineeService;
 
 class TraineeController extends BaseController
 {
@@ -38,15 +39,18 @@ class TraineeController extends BaseController
      * @return void
      */
     public function fetchTrainees() {
-        $data = array(
-            array('id' => 1, 'fullname' => 'Santiago Rivero', 'dni' => '39088088'),
-            array('id' => 2, 'fullname' => 'Nico Doncheff', 'dni' => '39066088'),
-            array('id' => 3, 'fullname' => 'Lionel Messi', 'dni' => '39044555'),
-            array('id' => 4, 'fullname' => 'Martin Palermo', 'dni' => '34455666'),
-            array('id' => 5, 'fullname' => 'Juan Riquelme', 'dni' => '39044888'),
-            array('id' => 5, 'fullname' => $this->app->request()->query->term, 'dni' => '39044888'),
-        );
+        $term = $this->app->request()->query->term;
+        $service = new TraineeService();
+        $trainees = $service->fetchByFullNameOrDNI($term);
+        $result = [];
+        foreach ($trainees as $trainee) {
+            $result[] = [
+                'id' => $trainee->getId(),
+                'fullname' => $trainee->getFullname(),
+                'dni' => $trainee->getDni()
+            ];
+        }
 
-        $this->app->json($data);
+        $this->app->json($result);
     }
 }
