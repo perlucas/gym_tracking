@@ -1,7 +1,10 @@
 <?php
 
 namespace Core\Controllers;
-use Core\Services\TraineeService;
+use Core\Models\Repositories\TraineeRepository;
+use Core\Models\Trainee;
+use Core\Models\Validators\TraineeValidator;
+use Core\Utils\FlashMessages;
 
 class TraineeController extends BaseController
 {
@@ -10,7 +13,9 @@ class TraineeController extends BaseController
      *
      * @return void
      */
-    public function createForm() {
+    public function createForm($trainee = null) {
+        $this->app->view()->set('trainee', $trainee);
+        
         $this->app->render('trainee/create', array(), 'bodyContent');
 
         $this->app->render( $this->layouts['web'] );
@@ -34,23 +39,57 @@ class TraineeController extends BaseController
     }
 
     /**
-     * retrieves trainees indexed by id as json
+     * fetchs trainees using the term query param
      *
      * @return void
      */
     public function fetchTrainees() {
         $term = $this->app->request()->query->term;
-        $service = new TraineeService();
-        $trainees = $service->fetchByFullNameOrDNI($term);
-        $result = [];
-        foreach ($trainees as $trainee) {
-            $result[] = [
-                'id' => $trainee->getId(),
-                'fullname' => $trainee->getFullname(),
-                'dni' => $trainee->getDni()
-            ];
+
+        $trainees = TraineeRepository::findByFullNameOrDNI($term);
+        
+        $result = array_map(
+            function ($trainee) {
+                return [
+                    'id' => $trainee->getId(),
+                    'fullname' => $trainee->getFullname(),
+                    'dni' => $trainee->getDni()
+                ];
+            }, 
+            $trainees
+        );
+        
+        $this->app->json($result);
+    }
+
+    /**
+     * stores a new trainee
+     *
+     * @return void
+     */
+    public function storeTrainee()
+    {
+        $traineeData = $this->app->request()->data;
+        
+        $trainee = new Trainee();
+        $trainee->setFullName($traineeData['fullname']);
+        $trainee->setDni($traineeData['dni']);
+        $trainee->setPhone($traineeData['phone']);
+        $trainee->setAddress($traineeData['address']);
+
+        $violations = TraineeValidator::validate($trainee);
+        
+        if (count($violations)) {
+            foreach ($violations as $violation) {
+                FlashMessages::getInstance()->error($violation->getMessage());
+            }
+        }
+        else {
+            TraineeRepository::save($trainee);
+            FlashMessages::getInstance()->success('La persona ha sido registrada con éxito');
+            $traineeData = null;
         }
 
-        $this->app->json($result);
+        $this->createForm($traineeData);
     }
 }

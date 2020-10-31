@@ -1,8 +1,8 @@
 <?php
 
 namespace Core\Models;
-
 use Core\Models\Base\AttendanceQuery as BaseAttendanceQuery;
+use Propel\Runtime\ActiveQuery\Criteria;
 
 /**
  * Skeleton subclass for performing query and update operations on the 'attendance' table.
@@ -15,5 +15,12 @@ use Core\Models\Base\AttendanceQuery as BaseAttendanceQuery;
  */
 class AttendanceQuery extends BaseAttendanceQuery
 {
-
+    /**
+     * adds order by clause based on time of creation
+     *
+     * @return \ModelCriteria
+     */
+    public function mostRecent() {
+        return $this->orderByTimestamp(Criteria::DESC);
+    }
 }

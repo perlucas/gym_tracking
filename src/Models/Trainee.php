@@ -15,5 +15,5 @@ use Core\Models\Base\Trainee as BaseTrainee;
  */
 class Trainee extends BaseTrainee
 {
-
+    
 }

@@ -22,3 +22,17 @@ function rootDir()
         pathJoin( [__DIR__, '..', '..'] )
     );
 }
+
+/**
+ * logs the message into the logging file
+ *
+ * @param array ...$args - message and level of logging
+ * @return void
+ */
+function g_log(...$args)
+{
+    \call_user_func_array(
+        ['Propel\\Runtime\\Propel', 'log'],
+        $args
+    );
+}

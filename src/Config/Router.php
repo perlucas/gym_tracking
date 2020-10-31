@@ -55,6 +55,11 @@ class Router
         );
         
         $app->route(
+            'POST /trainee/new',
+            array ( static::getController('trainee'), 'storeTrainee' )
+        );
+        
+        $app->route(
             'GET /trainee/export',
             array( static::getController('trainee'), 'exportForm' )
         );

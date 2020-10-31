@@ -3,35 +3,47 @@
         <h1 class='ff-1 text-center'>Alta de persona</h1>
     </div>
     <div class="pure-u-1-1">
-        <form class="pure-form pure-form-aligned" action="/attendance" method="POST">
+        <form class="pure-form pure-form-aligned" action="/trainee/new" method="POST">
             <div class="pure-g">
                 <div class="pure-u-11-24 m-t-2">
                     <input 
                         type="text" 
-                        id="multi-first-name" 
+                        name='fullname'
+                        title="Indique nombre y apellido"
+                        required
+                        value="<?= $trainee ? $trainee['fullname'] : '' ?>"
                         class="line-input styled-input ff-1" 
                         placeholder="Nombre y apellido"/>
                 </div>
                 <div class="pure-u-2-24 m-t-2"></div>
                 <div class="pure-u-11-24 m-t-2">
                     <input 
-                        type="text" 
-                        id="multi-first-name" 
+                        type="text"
+                        name="dni"
+                        title="Al menos 8 números sin puntos, comas o espacios"
+                        pattern="\d{8,}"
+                        required
+                        value="<?= $trainee ? $trainee['dni'] : '' ?>"
                         class="line-input styled-input ff-1" 
                         placeholder="DNI"/>
                 </div>
                 <div class="pure-u-11-24 m-t-2">
                     <input 
-                        type="text" 
-                        id="multi-first-name" 
+                        type="text"
+                        name="phone"
+                        pattern="[0-9\s\-]+"
+                        value="<?= $trainee ? $trainee['phone'] : '' ?>"
                         class="line-input styled-input ff-1" 
                         placeholder="Teléfono/Celular"/>
                 </div>
                 <div class="pure-u-2-24 m-t-2"></div>
                 <div class="pure-u-11-24 m-t-2">
                     <input 
-                        type="text" 
-                        id="multi-first-name" 
+                        type="text"
+                        name="address"
+                        title="Ingrese la dirección"
+                        required
+                        value="<?= $trainee ? $trainee['address'] : '' ?>"
                         class="line-input styled-input ff-1" 
                         placeholder="Dirección"/>
                 </div>

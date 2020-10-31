@@ -16,6 +16,7 @@ class Configure
         static::registerGlobalFunctions();
         static::loadPropelConfiguration();
         static::setPropelLogger();
+        static::setTimezone();
     }
 
     private static function defineConstants() {
@@ -46,5 +47,9 @@ class Configure
         $logger = new Logger('defaultLogger');
         $logger->pushHandler(new StreamHandler( \pathJoin( [\rootDir(), 'logs', 'propel.log'] ) ));
         Propel::getServiceContainer()->setLogger('defaultLogger', $logger);
+    }
+
+    private static function setTimeZone() {
+        \date_default_timezone_set(DEFAULT_TIMEZONE);
     }
 }
