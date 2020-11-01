@@ -8,23 +8,27 @@
 
                 <div class="pure-u-11-24 m-t-2">
                     <input 
-                        type="datetime" 
-                        id="multi-first-name" 
+                        type="text"
+                        data-datepicker-on="true"
+                        data-datepicker-target="#sd_picker"
                         class="line-input styled-input ff-1" 
                         placeholder="Fecha inicial"/>
+                    <input type="hidden" id="sd_picker" name="start_date">
                 </div>
                 <div class="pure-u-2-24 m-t-2"></div>
                 <div class="pure-u-11-24 m-t-2">
                     <input 
-                        type="datetime" 
-                        id="multi-first-name" 
+                        type="text" 
+                        data-datepicker-on="true"
+                        data-datepicker-target="#ed_picker"
                         class="line-input styled-input ff-1" 
                         placeholder="Fecha final"/>
+                    <input type="hidden" id="ed_picker" name="end_date">
                 </div>
                 
                 <div class="pure-u-11-24 m-t-2">
                     <label for="export_format" class='top-label ff-1'>Formato</label>
-                    <select id="export_format">
+                    <select id="export_format" name='format'>
                         <option value="excel">Excel</option>
                     </select>
                 </div>

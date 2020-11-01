@@ -50,13 +50,35 @@ class Router
         );
 
         $app->route(
+            'POST /attendance/export',
+            array( static::getController('attendance'), 'exportAttendances' )
+        );
+
+        $app->route(
             'GET /trainee/new',
             array( static::getController('trainee'), 'createForm' )
         );
         
         $app->route(
+            'POST /trainee/new',
+            array ( static::getController('trainee'), 'storeTrainee' )
+        );
+        
+        $app->route(
             'GET /trainee/export',
             array( static::getController('trainee'), 'exportForm' )
+        );
+        
+        $app->route(
+            'POST /trainee/export',
+            array( static::getController('trainee'), 'exportTrainees' )
+        );
+
+        /* API endpoints */
+
+        $app->route(
+            'GET /api/v1/trainees',
+            array( static::getController('trainee'), 'fetchTrainees' )
         );
     }
 

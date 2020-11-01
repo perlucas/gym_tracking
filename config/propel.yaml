@@ -1,0 +1,42 @@
+propel:
+    general:
+        project: gym_tracking
+        version: 2.0@dev
+
+    paths:
+        sqlDir: ./sql
+        phpDir: ../src
+        composerDir: ../
+
+    database:
+        connections:
+            main:
+                adapter: mysql
+                dsn: mysql:host=localhost;dbname=gym_tracking
+                user: admin
+                password: admin
+                settings:
+                    charset: utf8mb4
+                    queries:
+                        utf8: "SET NAMES utf8mb4 COLLATE utf8mb4_unicode_ci, COLLATION_CONNECTION = utf8mb4_unicode_ci, COLLATION_DATABASE = utf8mb4_unicode_ci, COLLATION_SERVER = utf8mb4_unicode_ci"
+
+    migrations:
+        addVendorInfo: true
+
+    reverse:
+        connection: main
+
+    runtime:
+        defaultConnection: main
+        connections:
+            - main
+
+    generator:
+        defaultConnection: main
+        connections:
+            - main
+        targetPackage: Models
+        namespaceAutoPackage: false
+        objectModel:
+            addHooks: true
+            useLeftJoinsInDoJoinMethods: true
