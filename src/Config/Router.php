@@ -50,6 +50,11 @@ class Router
         );
 
         $app->route(
+            'POST /attendance/export',
+            array( static::getController('attendance'), 'exportAttendances' )
+        );
+
+        $app->route(
             'GET /trainee/new',
             array( static::getController('trainee'), 'createForm' )
         );

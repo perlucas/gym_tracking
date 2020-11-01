@@ -2,8 +2,10 @@
 
 namespace Core\Controllers;
 use Core\Models\Repositories\TraineeRepository;
+use Core\Models\Repositories\AttendanceRepository;
 use Core\Services\AttendanceService;
 use Core\Utils\FlashMessages;
+use Core\Exporters\ExcelAttendanceExporter as AttendanceExporter;
 
 class AttendanceController extends BaseController
 {
@@ -45,10 +47,43 @@ class AttendanceController extends BaseController
 
         $this->app->view()->set('bodyScripts', 
             array(
-                'export/export.js'
+                'export/export.js',
+                'datepickers.js'
             )
         );
 
         $this->app->render( $this->layouts['web'] );
+    }
+
+    /**
+     * handles the POST /attendance/export request
+     *
+     * @return void
+     */
+    public function exportAttendances() {
+        $startDate = $this->app->request()->data->start_date;
+        $endDate = $this->app->request()->data->end_date;
+
+        $attendances = [];
+        
+        if ($startDate && $endDate) {
+            $attendances = AttendanceRepository::findAttendancesBetween($startDate, $endDate);
+        }
+        else if ($startDate) {
+            $attendances = AttendanceRepository::findAttendancesFrom($startDate);
+        }
+        else if ($endDate) {
+            $attendances = AttendanceRepository::findAttendancesTo($endDate);
+        }
+        else {
+            $attendances = AttendanceRepository::findAllAttendances();
+        }
+
+        $exporter = new AttendanceExporter();
+        $file = $exporter->exportAttendances($attendances);
+
+        if (file_exists($file)) {
+            $this->downloadFile($file);
+        }
     }
 }
