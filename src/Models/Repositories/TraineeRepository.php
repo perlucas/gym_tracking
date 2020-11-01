@@ -43,4 +43,13 @@ class TraineeRepository extends BaseRepository
     public static function findOneByDni($dni) {
         return TraineeQuery::create()->findOneByDni($dni);
     }
+
+    /**
+     * finds all the trainees
+     *
+     * @return array
+     */
+    public static function findAll() {
+        return TraineeQuery::create()->find()->getArrayCopy();
+    }
 }

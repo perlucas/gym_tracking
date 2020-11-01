@@ -63,6 +63,11 @@ class Router
             'GET /trainee/export',
             array( static::getController('trainee'), 'exportForm' )
         );
+        
+        $app->route(
+            'POST /trainee/export',
+            array( static::getController('trainee'), 'exportTrainees' )
+        );
 
         /* API endpoints */
 

@@ -8,7 +8,7 @@
                 
                 <div class="pure-u-11-24 m-t-2">
                     <label for="export_format" class='top-label ff-1'>Formato</label>
-                    <select id="export_format">
+                    <select id="export_format" name="format">
                         <option value="excel">Excel</option>
                     </select>
                 </div>

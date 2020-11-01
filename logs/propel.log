@@ -1,6 +1,0 @@
-[2020-10-30T23:53:22.163703+01:00] defaultLogger.DEBUG: logging! [] []
-[2020-10-30T23:56:43.528937+01:00] defaultLogger.DEBUG: logging! [] []
-[2020-10-31T19:34:36.319843+01:00] defaultLogger.DEBUG: array [] []
-[2020-10-31T19:34:36.382539+01:00] defaultLogger.DEBUG: Array (     [Id] => 14     [Fullname] => Dougie Songust     [Dni] => 2552471765     [Phone] => 366 411 2646     [Address] => 2 Charing Cross Crossing )  [] []
-[2020-10-31T19:58:59.205037+01:00] defaultLogger.DEBUG: flight\util\Collection Object (     [data:flight\util\Collection:private] => Array         (             [fullname] => lucas pereyra         )  )  [] []
-[2020-10-31T20:00:34.598861+01:00] defaultLogger.DEBUG: flight\util\Collection Object (     [data:flight\util\Collection:private] => Array         (             [fullname] => Lucas Pereyra             [dni] => 39455499             [phone] => 2302 15513873             [address] => 8 N° 1225         )  )  [] []

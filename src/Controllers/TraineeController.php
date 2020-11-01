@@ -5,6 +5,7 @@ use Core\Models\Repositories\TraineeRepository;
 use Core\Models\Trainee;
 use Core\Models\Validators\TraineeValidator;
 use Core\Utils\FlashMessages;
+use Core\Exporters\ExcelTraineeExporter as TraineeExporter;
 
 class TraineeController extends BaseController
 {
@@ -36,6 +37,23 @@ class TraineeController extends BaseController
         );
 
         $this->app->render( $this->layouts['web'] );
+    }
+
+    /**
+     * handles the POST /trainee/export request
+     *
+     * @return void
+     */
+    public function exportTrainees() {
+        \Core\Utils\FilesCleaner::scanAndCleanFiles();
+
+        $trainees = TraineeRepository::findAll();
+        $exporter = new TraineeExporter();
+        $file = $exporter->exportTrainees($trainees);
+        
+        if (file_exists($file)) {
+            $this->downloadFile($file);
+        }
     }
 
     /**
